@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We World Bank - Business Financing Made Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        nav a:hover {
+            color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #4CAF50;
+        }
+        
+        .product-card h3 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .product-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .product-card li {
+            padding: 0.5rem 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .product-card li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border-radius: 50%;
+            line-height: 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.15);
+        }
+        
+        .testimonial h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .testimonial p {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4CAF50;
+            font-size: 1rem;
+        }
+        
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+        }
+        
+        .footer-section a:hover {
+            color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+            transform: translateX(3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 0.8rem;
+            }
+            
+            nav a {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.6rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <div class="logo">We World Bank</div>
+            <ul>
+                <li><a href="#products">Loan Products</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="https://t.me/weworldbank4u" target="_blank">Telegram</a></li>
+                <li><a href="#" class="btn">Apply Now</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Business Financing Made Simple</h1>
+        <p>Fast and transparent loans from $100 to $500,000 for small businesses, startups, and growing organizations.</p>
+        <div class="hero-buttons">
+            <button class="btn">Apply for a Loan</button>
+            <button class="btn btn-secondary">View Loan Options</button>
+        </div>
+    </section>
+    
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="stat-item">
+            <h3>12,400+</h3>
+            <p>Businesses Funded</p>
+        </div>
+        <div class="stat-item">
+            <h3>$180M+</h3>
+            <p>Capital Deployed</p>
+        </div>
+        <div class="stat-item">
+            <h3>4.8/5</h3>
+            <p>Customer Rating</p>
+        </div>
+        <div class="stat-item">
+            <h3>48 hrs</h3>
+            <p>Average Approval</p>
+        </div>
+    </section>
+    
+    <!-- Loan Products Section -->
+    <section id="products" class="section">
+        <h2>Loan Products</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666; font-size: 0.95rem;">Flexible financing options designed for real business needs.</p>
+        
+        <div class="products-grid">
+            <!-- Working Capital Loan -->
+            <div class="product-card">
+                <h3>Working Capital Loan</h3>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">Cover everyday expenses such as salaries, rent, inventory and supplier payments.</p>
+                <ul>
+                    <li>Amount: $100 – $100,000</li>
+                    <li>Term: 3 – 24 months</li>
+                    <li>Fast disbursement</li>
+                    <li>Flexible repayment</li>
+                </ul>
+            </div>
+            
+            <!-- Business Expansion Loan -->
+            <div class="product-card">
+                <h3>Business Expansion Loan</h3>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">Grow your business — open new branches, hire staff or increase production.</p>
+                <ul>
+                    <li>Amount: $10,000 – $500,000</li>
+                    <li>Term: 12 – 60 months</li>
+                    <li>Competitive rates</li>
+                    <li>Business plan support</li>
+                </ul>
+            </div>
+            
+            <!-- Equipment & Asset Financing -->
+            <div class="product-card">
+                <h3>Equipment & Asset Financing</h3>
+                <p style="font-size: 0.95rem; color: #666; margin-bottom: 1rem;">Purchase machinery, vehicles, computers or other assets for your business.</p>
+                <ul>
+                    <li>Amount: $5,000 – $350,000</li>
+                    <li>Term: 12 – 48 months</li>
+                    <li>Asset-backed options</li>
+                    <li>Quick approval</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section">
+        <h2>How It Works</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666; font-size: 0.95rem;">A simple and transparent process for busy business owners.</p>
+        
+        <div class="how-it-works">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Submit Application</h3>
+                <p>Fill out the short form with your details and financing needs.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Review & Verification</h3>
+                <p>Our team reviews your application and may request documents.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Approval Decision</h3>
+                <p>Receive a clear decision usually within 1–2 business days.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Receive Funds</h3>
+                <p>Once approved, funds are transferred to your account.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section">
+        <h2>Real People. Real Businesses.</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666; font-size: 0.95rem;">We work with entrepreneurs and organizations building something meaningful.</p>
+        
+        <div class="testimonials">
+            <div class="testimonial">
+                <h4>David Okonkwo</h4>
+                <p>Expanded his logistics company</p>
+            </div>
+            <div class="testimonial">
+                <h4>Amara Nwosu</h4>
+                <p>Grew her retail store inventory</p>
+            </div>
+            <div class="testimonial">
+                <h4>James Mensah</h4>
+                <p>Financed new equipment</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>We World Bank</h3>
+                <p>Providing accessible financing solutions for businesses and organizations.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#products">Working Capital</a></li>
+                    <li><a href="#products">Expansion Loans</a></li>
+                    <li><a href="#products">Equipment Financing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#">Apply Now</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="https://t.me/weworldbank4u" target="_blank">Telegram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 We World Bank. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
